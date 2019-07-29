@@ -1,0 +1,26 @@
+<div *ngIf="show" class="preloader-wrap">
+  <div id="awwwards" class="sotd black right">
+    <a href="http://ow.ly/PKv38" target="_blank">Awwwards</a>
+  </div>
+  <div class="preloader-wrap_i">
+    <div #preloader class="preloader animated">
+      <div class="preloader__wrap">
+        <div class="preloader__logo"></div>
+        <div class="preloader__l"></div>
+        <div class="preloader__r"></div>
+        <div class="preloader__t"></div>
+        <div class="preloader__b"></div>
+      </div>
+      <div class="preloader__progress">
+        <span><i [ngStyle]="{'width':progress + '%'}"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="preloader__descr">
+    <p>
+      You can use the <strong>golden icons</strong><br/>
+      to relocate and resize the content.
+    </p>
+    <img src="/assets/img/description.gif" data-src="" alt="Guid for site"/>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.wrap-border-left {
+  transition: height 500ms ease-in;
+
+  &.stable {
+    max-height: 100%;
+    overflow: hidden;
+  }
+}
+
+.wrap-border-bott {
+  transition: width 500ms ease-in 500ms;
+  &.stable {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+.wrap-border-top {
+  transition: width 500ms ease-in;
+  &.stable {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+.wrap-border-right {
+  transition: height 500ms ease-in 500ms;
+  &.stable {
+    max-height: 100%;
+    overflow: hidden;
+  }
+}

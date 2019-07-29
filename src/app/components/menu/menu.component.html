@@ -1,0 +1,111 @@
+<div class="menu">
+  <div class="menu_i">
+
+    <nav class="nav-main">
+      <ul>
+        <li>
+          <a href="ajax/index.html" class="active center-fixed" data-position="center-fixed">
+            <span
+              class="center">Home
+            </span>
+            <span class="left">
+              <span class="left-i"></span>
+            </span>
+            <span class="right">
+              <span
+                class="right-i"></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="ajax/about.html">
+            <span class="center">About</span>
+            <span class="left">
+              <span
+                class="left-i"></span>
+            </span>
+            <span class="right">
+              <span class="right-i"></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="ajax/case.html" class="cases-link">
+            <span class="center">Projects</span>
+            <span class="left">
+              <span
+                class="left-i"></span>
+            </span>
+            <span class="right">
+              <span class="right-i"></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="ajax/contactus.html">
+            <span class="center">Contact</span>
+            <span class="left">
+              <span
+                class="left-i"></span>
+            </span>
+            <span class="right">
+              <span class="right-i"></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="ajax/blog-list.html" class="bloglist-link">
+            <span class="center">Blog</span>
+            <span class="left">
+              <span
+                class="left-i"></span>
+            </span>
+            <span class="right">
+              <span class="right-i"></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-main__social clearfix">
+        <a class="icon-fb" target="blank" href="http://on.fb.me/1HNEUdI"></a>
+        <a class="icon-tw" target="blank" href="http://bit.ly/1Iiu64n"></a>
+
+
+      </div>
+      <a (click)="imprint('open',$event)" href="javascript:;" class="btn-imprint">imprint</a>
+
+      <div [ngClass]="{'open':subscribeShow,'subscribe_error':msg.show}" class="subscribe">
+        <a (click)="subscribe($event)" href="javascript:;" class="title">Newsletter</a>
+
+        <div class="subscribe__form clearfix">
+          <form (submit)="submit($event)" method="post">
+            <input (focus)="focus = true" (blur)="focus = false;"
+              type="text" class="subscribe__form__email {{focus ? 'focus':''}}" placeholder="ENTER EMAIL ADRESS"/>
+            <a (click)="submit($event)" href="javascript:;" class="subscribe__submit"></a>
+            <input type="submit" value=""/>
+          </form>
+        </div>
+        <div (click)="msg.show = false" class="subscribe__message" title="">{{msg.content}}</div>
+      </div>
+    </nav>
+
+    <div class="menu__top-part"></div>
+    <div class="menu__bott-part"></div>
+
+    <div class="border-left"></div>
+    <div class="border-right"></div>
+    <div class="border-top"></div>
+    <div class="border-bott"></div>
+  </div>
+</div>
+<!--menu end-->
+
+<div (click)="toggle()" class="btn-menu active">
+  <div class="btn-menu_i">
+    <div class="btn-menu_ii">
+      <div class="btn-menu__line-1"></div>
+      <div class="btn-menu__line-2"></div>
+      <div class="btn-menu__line-3"></div>
+    </div>
+  </div>
+</div>
