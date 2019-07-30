@@ -4,6 +4,8 @@ import {ImprintService} from '../imprint/imprint.service';
 import {MenuService} from './menu.service';
 import {CatalogService} from '../../pages/catalog/catalog.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -33,12 +35,20 @@ export class MenuComponent implements OnInit {
     this.catalogSvc.get().subscribe(res => {
       this.catalogs = res;
     });
+
+    $(window).resize(() => {
+      $('.menu__top-part, .menu__bott-part').height(($(window).height() - $('.nav-main').height()) / 2 - 2);
+    });
   }
 
   menu(catalog, e) {
     e.preventDefault();
     this.menuSvc.set(false);
     this.router.navigate(['/catalog', catalog._id]);
+  }
+
+  hover(state, e) {
+    console.log(e);
   }
 
   toggle() {

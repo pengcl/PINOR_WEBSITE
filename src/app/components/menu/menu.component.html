@@ -3,8 +3,21 @@
 
     <nav class="nav-main">
       <ul>
+        <li>
+          <a (mousemove)="hover(true,$event)" (mouseout)="hover(false,$event)" class="center-fixed" data-position="center-fixed">
+            <span class="center">home</span>
+            <span class="left">
+              <span class="left-i"></span>
+            </span>
+            <span class="right">
+              <span
+                class="right-i"></span>
+            </span>
+          </a>
+        </li>
         <li *ngFor="let catalog of catalogs">
-          <a (click)="menu(catalog,$event)" [routerLink]="['/catalog',catalog._id]" class="active center-fixed" data-position="center-fixed">
+          <a (click)="menu(catalog,$event)" [routerLink]="['/catalog',catalog._id]" class="{{catalog.path === 'cases' ? 'active' : ''}} center-fixed"
+            data-position="center-fixed">
             <span class="center">{{catalog.name}}</span>
             <span class="left">
               <span class="left-i"></span>
