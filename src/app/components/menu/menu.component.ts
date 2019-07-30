@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {ImprintService} from '../imprint/imprint.service';
 import {MenuService} from './menu.service';
+import {CatalogService} from '../../pages/catalog/catalog.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,14 +18,27 @@ export class MenuComponent implements OnInit {
     content: '订阅失败！'
   };
 
-  constructor(private imprintSvc: ImprintService, private menuSvc: MenuService) {
+  catalogs;
+
+  constructor(private router: Router,
+              private imprintSvc: ImprintService,
+              private menuSvc: MenuService,
+              private catalogSvc: CatalogService) {
   }
 
   ngOnInit() {
     this.menuSvc.get().subscribe(res => {
       this.show = res;
-      console.log(this.show);
     });
+    this.catalogSvc.get().subscribe(res => {
+      this.catalogs = res;
+    });
+  }
+
+  menu(catalog, e) {
+    e.preventDefault();
+    this.menuSvc.set(false);
+    this.router.navigate(['/catalog', catalog._id]);
   }
 
   toggle() {

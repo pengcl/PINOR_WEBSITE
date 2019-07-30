@@ -1352,13 +1352,13 @@ $(function () {
 			data.each(function () {
 				var content = $(this);
 
-				if (content.hasClass('aboutus')) {
+				if (content.hasClass('about')) {
 					aboutPage(content);
 					//console.log('aboutus page detected');
 					return false;
 				}
 
-				if (content.hasClass('contactus')) {
+				if (content.hasClass('contact')) {
 					contactPage(content);
 					//console.log('contactus page detected');
 					return false;

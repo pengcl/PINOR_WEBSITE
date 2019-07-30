@@ -3,65 +3,15 @@
 
     <nav class="nav-main">
       <ul>
-        <li>
-          <a href="ajax/index.html" class="active center-fixed" data-position="center-fixed">
-            <span
-              class="center">Home
-            </span>
+        <li *ngFor="let catalog of catalogs">
+          <a (click)="menu(catalog,$event)" [routerLink]="['/catalog',catalog._id]" class="active center-fixed" data-position="center-fixed">
+            <span class="center">{{catalog.name}}</span>
             <span class="left">
               <span class="left-i"></span>
             </span>
             <span class="right">
               <span
                 class="right-i"></span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="ajax/about.html">
-            <span class="center">About</span>
-            <span class="left">
-              <span
-                class="left-i"></span>
-            </span>
-            <span class="right">
-              <span class="right-i"></span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="ajax/case.html" class="cases-link">
-            <span class="center">Projects</span>
-            <span class="left">
-              <span
-                class="left-i"></span>
-            </span>
-            <span class="right">
-              <span class="right-i"></span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="ajax/contactus.html">
-            <span class="center">Contact</span>
-            <span class="left">
-              <span
-                class="left-i"></span>
-            </span>
-            <span class="right">
-              <span class="right-i"></span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="ajax/blog-list.html" class="bloglist-link">
-            <span class="center">Blog</span>
-            <span class="left">
-              <span
-                class="left-i"></span>
-            </span>
-            <span class="right">
-              <span class="right-i"></span>
             </span>
           </a>
         </li>
@@ -72,10 +22,10 @@
 
 
       </div>
-      <a (click)="imprint('open',$event)" href="javascript:;" class="btn-imprint">imprint</a>
+      <a (click)="imprint('open',$event)" href="javascript:;" class="btn-imprint">企业大记事</a>
 
       <div [ngClass]="{'open':subscribeShow,'subscribe_error':msg.show}" class="subscribe">
-        <a (click)="subscribe($event)" href="javascript:;" class="title">Newsletter</a>
+        <a (click)="subscribe($event)" href="javascript:;" class="title">邮件订阅</a>
 
         <div class="subscribe__form clearfix">
           <form (submit)="submit($event)" method="post">
