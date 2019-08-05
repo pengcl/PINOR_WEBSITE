@@ -2,8 +2,9 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './pages/index/index.component';
 import {ListComponent} from './pages/article/list/list.component';
-import {ItemComponent} from './pages/article/item/item.component';
+import {ArticleItemComponent} from './pages/article/item/item.component';
 import {CatalogComponent} from './pages/catalog/catalog.component';
+import {CatalogResolve} from './pages/catalog/catalog.resolve';
 
 const routes: Routes = [
   {
@@ -11,19 +12,22 @@ const routes: Routes = [
   },
   {
     path: 'index',
-    component: IndexComponent,
+    component: IndexComponent
   },
   {
     path: 'list',
-    component: ListComponent,
+    component: ListComponent
   },
   {
-    path: 'item/:id',
-    component: ItemComponent,
+    path: 'article/:id',
+    component: ArticleItemComponent
   },
   {
     path: 'catalog/:id',
     component: CatalogComponent,
+    resolve: {
+      catalog: CatalogResolve
+    }
   }
 ];
 

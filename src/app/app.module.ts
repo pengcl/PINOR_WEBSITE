@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
@@ -6,8 +7,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {IndexComponent} from './pages/index/index.component';
 import {ListComponent} from './pages/article/list/list.component';
-import {ItemComponent} from './pages/article/item/item.component';
+import {ArticleItemComponent} from './pages/article/item/item.component';
 import {CatalogComponent} from './pages/catalog/catalog.component';
+import {CatalogTypeIndexComponent} from './pages/catalog/templates/index/index.component';
+import {CatalogTypeListComponent} from './pages/catalog/templates/list/list.component';
 import {ImprintComponent} from './components/imprint/imprint.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {PreloaderComponent} from './components/preloader/preloader.component';
@@ -21,8 +24,10 @@ import {ControlsComponent} from './components/controls/controls.component';
     AppComponent,
     IndexComponent,
     ListComponent,
-    ItemComponent,
+    ArticleItemComponent,
     CatalogComponent,
+    CatalogTypeIndexComponent,
+    CatalogTypeListComponent,
     ImprintComponent,
     MenuComponent,
     PreloaderComponent,
@@ -32,6 +37,7 @@ import {ControlsComponent} from './components/controls/controls.component';
     ControlsComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
