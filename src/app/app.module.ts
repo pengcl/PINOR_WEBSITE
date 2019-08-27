@@ -19,6 +19,8 @@ import {HelpMenuComponent} from './components/help-menu/help-menu.component';
 import {OverlayComponent} from './components/overlay/overlay.component';
 import {ControlsComponent} from './components/controls/controls.component';
 
+import {PIPES_DECLARATIONS} from './pipes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import {ControlsComponent} from './components/controls/controls.component';
     LogoComponent,
     HelpMenuComponent,
     OverlayComponent,
-    ControlsComponent
+    ControlsComponent,
+    ...PIPES_DECLARATIONS
   ],
   imports: [
     CommonModule,

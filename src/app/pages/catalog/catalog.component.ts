@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Renderer2} from '@angular/core';
 import {CatalogService} from './catalog.service';
@@ -14,6 +14,8 @@ export class CatalogComponent implements OnInit, AfterViewInit {
   id;
   catalog;
   type;
+  height;
+  @ViewChild('section', {static: false}) section;
 
   constructor(private route: ActivatedRoute, private renderer: Renderer2, private catalogSvc: CatalogService) {
   }
@@ -36,6 +38,15 @@ export class CatalogComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    console.log(this.section);
+    // this.height = this.section.nativeElement.clientWidth;
+    $(document).on('click', '.btn-top', (e) => {
+      e.preventDefault();
+      $(this).closest('.section-wrap').mCustomScrollbar('scrollTo', 0, {
+        scrollInertia: 1000,
+        scrollEasing: 'easeOut'
+      });
+    });
   }
 
 }

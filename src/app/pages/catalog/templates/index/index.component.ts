@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, AfterViewInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 
 declare var $: any;
 
@@ -9,6 +9,7 @@ declare var $: any;
 })
 export class CatalogTypeIndexComponent implements OnInit, AfterViewInit {
   @Input() catalog;
+  @ViewChild('content', {static: false}) content;
 
   constructor() {
   }
@@ -19,6 +20,36 @@ export class CatalogTypeIndexComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       $('.detect-inview').addClass('visible');
+      $('.map').css({height: $(window).innerHeight() + 'px'});
+      $('.first-step').css({height: $(window).innerHeight() + 'px'});
+      $(document).on('click', '.about-wrap .first-step .btn-down', () => {
+        $('.section-wrap').mCustomScrollbar('scrollTo', $('.second-step'), {
+          scrollInertia: 1000,
+          scrollEasing: 'easeOut'
+        });
+
+      });
+
+      $('.second-step__list').owlCarousel({
+        loop: true,
+        nav: false,
+        dots: true,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        autoplay: true,
+        autoplayTimeout: 30000,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 1
+          }
+        }
+      });
     });
   }
 
