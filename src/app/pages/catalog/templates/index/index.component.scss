@@ -1,3 +1,7 @@
-.section-wrap {
-  height: 100%;
+.contact-wrap {
+  min-height: 100%;
+}
+
+::ng-deep .map {
+  min-height: 720px;
 }
