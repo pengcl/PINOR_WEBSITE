@@ -43,7 +43,7 @@
         <div class="subscribe__form clearfix">
           <form (submit)="submit($event)" method="post">
             <input (focus)="focus = true" (blur)="focus = false;"
-              type="text" class="subscribe__form__email {{focus ? 'focus':''}}" placeholder="ENTER EMAIL ADRESS"/>
+              type="text" class="subscribe__form__email {{focus ? 'focus':''}}" placeholder="请输入您的邮箱地址"/>
             <a (click)="submit($event)" href="javascript:;" class="subscribe__submit"></a>
             <input type="submit" value=""/>
           </form>

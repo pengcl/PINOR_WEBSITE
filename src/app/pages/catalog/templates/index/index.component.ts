@@ -23,7 +23,7 @@ export class CatalogTypeIndexComponent implements OnInit, AfterViewInit {
       $('.map').css({height: $(window).innerHeight() + 'px'});
       $('.first-step').css({height: $(window).innerHeight() + 'px'});
       $(document).on('click', '.about-wrap .first-step .btn-down', () => {
-        $('.section-wrap').mCustomScrollbar('scrollTo', $('.second-step'), {
+        $('.section-wrap').mCustomScrollbar('scrollTo', $('.wrap-bg'), {
           scrollInertia: 1000,
           scrollEasing: 'easeOut'
         });
