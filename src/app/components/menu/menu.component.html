@@ -1,11 +1,11 @@
 <div class="menu">
   <div class="menu_i">
 
-    <nav class="nav-main">
+    <nav #nav class="nav-main">
       <ul>
         <li>
-          <a (mousemove)="hover(true,$event)" (mouseout)="hover(false,$event)" class="center-fixed" data-position="center-fixed">
-            <span class="center">home</span>
+          <a class="center-fixed active">
+            <span class="center">主页</span>
             <span class="left">
               <span class="left-i"></span>
             </span>
@@ -16,8 +16,7 @@
           </a>
         </li>
         <li *ngFor="let catalog of catalogs">
-          <a (click)="menu(catalog,$event)" [routerLink]="['/catalog',catalog._id]" class="{{catalog.path === 'cases' ? 'active' : ''}} center-fixed"
-            data-position="center-fixed">
+          <a (click)="menu(catalog,$event)" class="center-fixed">
             <span class="center">{{catalog.name}}</span>
             <span class="left">
               <span class="left-i"></span>

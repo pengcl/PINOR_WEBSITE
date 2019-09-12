@@ -35,10 +35,32 @@ export class MenuComponent implements OnInit {
     this.catalogSvc.get().subscribe(res => {
       this.catalogs = res;
     });
-
+    this.getHeight();
     $(window).resize(() => {
-      $('.menu__top-part, .menu__bott-part').height(($(window).height() - $('.nav-main').height()) / 2 - 2);
+      this.getHeight();
     });
+
+    $(document).on('mouseover', '.center-fixed > span', (e) => {
+      const $target = $(e.currentTarget);
+      const $parent = $(e.currentTarget.offsetParent);
+      $target.addClass('active');
+
+      const className = $target.attr('class').replace(' ', '-');
+      console.log(e);
+      $parent.addClass(className);
+    });
+
+    $(document).on('mouseout', '.center-fixed > span', (e) => {
+      const $target = $(e.currentTarget);
+      const $parent = $(e.currentTarget.offsetParent);
+      $target.removeClass('active');
+      $parent.attr('class', 'center-fixed');
+      $('.center-fixed').eq(0).attr('class', 'active center-fixed');
+    });
+  }
+
+  getHeight() {
+    $('.menu__top-part, .menu__bott-part').height(($(window).height() - 524) / 2 - 2);
   }
 
   menu(catalog, e) {
@@ -47,9 +69,25 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/catalog', catalog._id]);
   }
 
-  hover(state, e) {
-    console.log(e);
-  }
+  /*over(e) {
+    e.stopPropagation();
+    const $target = $(e.target);
+    const $parent = $(e.target.offsetParent);
+    $target.addClass('active');
+
+    const className = $target.attr('class').replace(' ', '-');
+    console.log(className);
+    $parent.addClass(className);
+    // console.log(e.target.className(e.target.className() + ' active'));
+  }*/
+
+  /*out(e) {
+    e.stopPropagation();
+    const $target = $(e.target);
+    const $parent = $(e.target.offsetParent);
+    $target.removeClass('active');
+    $parent.attr('class', 'center-fixed');
+  }*/
 
   toggle() {
     this.menuSvc.set(!this.show);

@@ -3,4 +3,17 @@ app-root {
   position: absolute;
   width: 100%;
   min-height: 100%;
+  [class^="wrap-border-"],
+  [class*=" wrap-border-"],
+  [class^="border-"],
+  [class*=" border-"] {
+    opacity: 0.1;
+  }
+
+  .nav-main {
+    a {
+      cursor: pointer;
+    }
+  }
+
 }
